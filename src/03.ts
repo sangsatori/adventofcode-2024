@@ -1,6 +1,5 @@
 import { Solver } from "./utils.ts";
 
-// const re = /mul\((\d+),(\d+)\)/g;
 const re = /(?<enable>do\(\))|(?<disable>don't\(\))|mul\((?<x>\d+),(?<y>\d+)\)/g;
 
 const fn: Solver<number> = async (lines) => {
