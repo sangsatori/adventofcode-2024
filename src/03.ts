@@ -7,7 +7,7 @@ const fn: Solver<number> = async (lines) => {
     let sum2 = 0;
     let enabled = true;
     for await (const line of lines) {
-        for (const [, enable, disable, x, y] of line.matchAll(re)) {
+        for (const { groups: { enable, disable, x, y } = {}} of line.matchAll(re)) {
             if (enable)
                 enabled = true;
             if (disable)
