@@ -1,0 +1,8 @@
+{
+    "tasks": {
+        "scaffold": {
+            "description": "Scaffold for day N",
+            "command": "deno --allow-write --allow-read ./src/scaffold.ts"
+        }
+    }
+}
