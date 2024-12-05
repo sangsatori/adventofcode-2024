@@ -3,7 +3,7 @@ import { Solver } from "./utils.ts";
 const re = /(?<before>\d+)\|(?<after>\d+)/g;
 
 const fn: Solver<number> = async (lines) => {
-    let sum1 = 0; let sum2 = 0;
+    const result: [number, number] = [0, 0];
 
     {
         const rules: Map<string, Set<string>> = new Map();
@@ -35,13 +35,19 @@ const fn: Solver<number> = async (lines) => {
                             isValid = false; // invalidated
                             break positionValidation;
                         } // else we're good, continue checkining
-                if (isValid) 
-                    sum1 +=  Number.parseInt(tokens[(tokens.length-1) / 2]);
+
+                if (!isValid) 
+                    tokens.sort((after, before) => 
+                        rules.get(before)?.has(after)
+                            ? -1
+                            : 1);
+
+                result[isValid ? 0 : 1] += Number.parseInt(tokens[(tokens.length-1) / 2]);
             }
         }
     }
 
-    return [sum1, 0];
+    return result;
 }
 
 export default fn;

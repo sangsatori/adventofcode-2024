@@ -5,11 +5,11 @@ scaffold("day 5", fn, [
   [
     "../input/05.sample.txt",
     143,
-    0,
+    123,
   ],
   [
     "../input/05.txt",
     6260,
-    0
+    5346
   ]
 ]);
